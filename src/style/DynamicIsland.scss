@@ -1,0 +1,12 @@
+@import './variables.scss';
+
+.DynamicIsland{
+    width: 87px;
+    height: $diHeight;
+    background-color: black;
+    border-radius: 13px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: $diTop;
+}

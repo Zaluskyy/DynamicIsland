@@ -1,0 +1,16 @@
+.IconsPlace{
+    min-height: 100px;
+    width: 100%;
+    flex-grow: 1;
+    // background-color: rgba(0, 0, 255, 0.485);
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 17px;
+    /* background-color: rgb(160, 11, 138); */
+    padding: 19px;
+    box-sizing: border-box;
+
+
+}

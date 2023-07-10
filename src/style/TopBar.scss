@@ -1,0 +1,29 @@
+@import './variables.scss';
+
+.TopBar{
+    width: 100%;
+    height: calc(calc($diTop)*2) + $diHeight;
+    // background-color: red;
+    // position: absolute;
+    left: 50%;
+    // transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 15%;
+
+    span.left{
+        font-size: 9px;
+        color: black;
+        font-weight: bold;
+    }
+
+    span.right{
+        img{
+            margin-left: 3px;
+            width: 10px;
+            height: 10px;
+        }
+    }
+}

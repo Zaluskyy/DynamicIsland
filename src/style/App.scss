@@ -1,0 +1,66 @@
+.App {
+  background-color: rgb(24, 22, 22);
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+
+  .container{
+    position: relative;
+    width: 298px;
+    height: 616px;
+    background-color: black;
+    border-radius: 52px;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    $buttonWidth: 2px;
+
+
+    .physicialButton{
+      background-color: rgb(111, 103, 103);
+      width: $buttonWidth;
+      // left: -3px;
+      // height: 5px;
+      border-top-left-radius: 1.5px;
+      border-bottom-left-radius: 1.5px;
+      position: absolute;
+    }
+
+    .volumeSwitch{
+      top: 117px;
+      height: 25px;
+      left: -$buttonWidth;
+    }
+
+    .topVolumeButton{
+      top: 162px;
+      height: 48px;
+      left: -$buttonWidth;
+    }
+
+    .bottomVolumeButton{
+      top: 222px;
+      height: 48px;
+      left: -$buttonWidth;
+    }
+
+    .powerButton{
+      right: -$buttonWidth;
+      border-top-right-radius: 1.5px;
+      border-bottom-right-radius: 1.5px;
+      top: 195px;
+      height: 73px;
+    }
+
+  }
+
+
+}
