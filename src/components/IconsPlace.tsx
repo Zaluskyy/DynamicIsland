@@ -19,10 +19,16 @@ interface IApplications {
     onClick: ()=>void,
 }
 
-const IconsPlace: React.FC = () => {
+export interface IconsPlaceProps{
+    setSpotify: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const IconsPlace: React.FC<IconsPlaceProps> = ({setSpotify}) => {
 
     const handleYetNothing = ()=>{
         console.log("not a function")
+        setSpotify(true)
+        
     }
 
     interface Applications {
