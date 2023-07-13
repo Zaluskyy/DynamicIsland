@@ -3,10 +3,7 @@
 .TopBar{
     width: 100%;
     height: calc(calc($diTop)*2) + $diHeight;
-    // background-color: red;
-    // position: absolute;
     left: 50%;
-    // transform: translateX(-50%);
     display: flex;
     justify-content: space-between;
     align-items: center;

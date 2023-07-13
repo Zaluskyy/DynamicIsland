@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import '../style/IconsPlace.scss';
 import Application from './Application';
 
@@ -12,6 +12,7 @@ import music from '../img/icons/music.png'
 import appStore from '../img/icons/appStore.png'
 import youtube from '../img/icons/youtube.png'
 import maps from '../img/icons/maps.png'
+import AppsContext from '../store/AppsContext';
 
 interface IApplications {
     name: string,
@@ -20,15 +21,16 @@ interface IApplications {
 }
 
 export interface IconsPlaceProps{
-    setSpotify: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const IconsPlace: React.FC<IconsPlaceProps> = ({setSpotify}) => {
+const IconsPlace: React.FC<IconsPlaceProps> = () => {
 
-    const handleYetNothing = ()=>{
-        console.log("not a function")
-        setSpotify(true)
-        
+    const appsContext = useContext(AppsContext)
+
+    const handleOpenApp = (name: string)=>{
+        if(name!==''){
+            appsContext.handleOpenApp(name)
+        }
     }
 
     interface Applications {
@@ -38,15 +40,15 @@ const IconsPlace: React.FC<IconsPlaceProps> = ({setSpotify}) => {
     }
 
     const applications: IApplications[] = [
-        {name: "Spotify", img: spotify, onClick: handleYetNothing},
-        {name: "Photos", img: photos, onClick: handleYetNothing},
-        {name: "Mail", img: mail, onClick: handleYetNothing},
-        {name: "Safari", img: safari, onClick: handleYetNothing},
-        {name: "Health", img: health, onClick: handleYetNothing},
-        {name: "Music", img: music, onClick: handleYetNothing},
-        {name: "App Store", img: appStore, onClick: handleYetNothing},
-        {name: "Maps", img: maps, onClick: handleYetNothing},
-        {name: "Youtube", img: youtube, onClick: handleYetNothing},
+        {name: "Spotify", img: spotify, onClick: ()=>handleOpenApp('SPOTIFY')},
+        {name: "Photos", img: photos, onClick: ()=>handleOpenApp('')},
+        {name: "Mail", img: mail, onClick: ()=>handleOpenApp('')},
+        {name: "Safari", img: safari, onClick: ()=>handleOpenApp('')},
+        {name: "Health", img: health, onClick: ()=>handleOpenApp('')},
+        {name: "Music", img: music, onClick: ()=>handleOpenApp('')},
+        {name: "Store", img: appStore, onClick: ()=>handleOpenApp('')},
+        {name: "Maps", img: maps, onClick: ()=>handleOpenApp('')},
+        {name: "Youtube", img: youtube, onClick: ()=>handleOpenApp('')},
     ]
 
     const app: JSX.Element[] = applications.map(item=>{

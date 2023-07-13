@@ -17,8 +17,6 @@ export interface ApplicationAnimationProps {
 const ApplicationAnimation: React.FC<ApplicationAnimationProps> = ({children, onClick, className, tabIndex, variants, animate}) => {
     return ( 
         <motion.div
-        // onClick={onClick}
-        // className={className}
         className={`${className} ApplicationAnimation`}
 
         variants={application}

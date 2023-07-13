@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import ApplicationAnimation from '../../UI/ApplicationAnimation';
-// import SpotifyContext from '../../store/SpotifyContext';
+import SpotifyContext from '../../store/SpotifyContext';
 
 import '../../style/Apps/Spotify.scss';
 
@@ -8,7 +8,6 @@ import dopehouse from '../../img/apps/spotify/dopehouse.jpg'
 import kukonozaur from '../../img/apps/spotify/kukonozaur.jpg'
 
 export interface SpotifyProps{
-    setSpotify: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface Imusic{
@@ -17,11 +16,9 @@ interface Imusic{
     title: string,
 }
 
-const Spotify: React.FC<SpotifyProps> = ({setSpotify}) => {
+const Spotify: React.FC<SpotifyProps> = () => {
 
-    // const kurwaContext:  = useContext(SpotifyContext)
-
-// console.log(kurwaContext.num);
+    const spotifyContext = useContext(SpotifyContext)
 
     const music: Imusic[] = [
         {cover: dopehouse, artist: "Gibbs x Janek", title: "Ostatni"},
@@ -57,12 +54,8 @@ const Spotify: React.FC<SpotifyProps> = ({setSpotify}) => {
                     <div>||</div>
                     <div>&#62;</div>
                 </div>
-
-
             </div>
         </ApplicationAnimation>
-        // <div className='Spotify'>
-        // </div>
      );
 }
  
