@@ -19,7 +19,7 @@ export const AppsContextProvider = ({children}: {children: ReactNode}) =>{
     }
 
     const [homeBar, setHomeBar] = useState<boolean>(false)
-    const [screenOn, setScreenOn] = useState<boolean>(false)
+    const [screenOn, setScreenOn] = useState<boolean>(true)
 
     const handleCloseApp = ()=>{
         setApps({...defaultApps})
