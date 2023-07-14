@@ -4,7 +4,7 @@ const DynamicIslandContext = createContext<any>({} as any);
 
 export const DynamicIslandContextProvider = ({children}: {children: ReactNode}) =>{
     const [width, setWidth] = useState<number>(87)
-    const [height, setHeight] = useState<number>(87)
+    const [height, setHeight] = useState<number>(26)
     const [radius, setRadius] = useState<number>(13)
     const [top, setTop] = useState<number>(8)
 

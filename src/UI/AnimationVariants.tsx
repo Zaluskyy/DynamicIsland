@@ -16,9 +16,21 @@ export const appear = {
         opacity: 0
     },
     visible: {
-        opacity: 1
+        opacity: 1,
     },
     exit: {
         opacity: 0
     }
 }
+
+// export const faceId = {
+//     hidden: {
+//         opacity: 0
+//     },
+//     visible: {
+//         opacity: [1, .2, .5, .7, .2, 1]
+//     },
+//     exit: {
+//         opacity: 0
+//     }
+// }

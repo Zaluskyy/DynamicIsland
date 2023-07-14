@@ -10,5 +10,22 @@
     transform: translateX(-50%);
     top: $diTop;
 
-    transition: .2s ;
+    transition: .5s ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .faceIdImgContainer{
+        width: 70%;
+        height: 70%;
+
+        img{
+            width: 100%;
+            height: 100%;
+            // background-color: green;
+            // // fill: green;
+            // filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%);
+        }
+    }
+
 }

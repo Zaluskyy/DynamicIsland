@@ -13,7 +13,7 @@ const App: React.FC = () => {
   }
 
   const handlePowerClick = ()=>{
-      appsContext.setScreenOn(!Boolean(appsContext.screenOn))
+    appsContext.setScreenOn(!Boolean(appsContext.screenOn))
   }
 
   return (

@@ -1,10 +1,25 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import DynamicIslandContext from '../store/DynamicIslandContext';
 import '../style/DynamicIsland.scss'
+import faceId from '../img/icons/faceId.svg'
+import { AnimatePresence, motion } from 'framer-motion';
+import { appear } from '../UI/AnimationVariants';
+import AppearAnimation from '../UI/AppearAnimation';
 
 const DynamicIsland: React.FC = () => {
 
     const diContext = useContext(DynamicIslandContext)
+
+    useEffect(()=>{
+        let timeoutId: ReturnType<typeof setTimeout>;
+        if(diContext.mode=='FACEID'){
+            timeoutId = setTimeout(() => {
+                diContext.setMode('NORMAL')
+            }, 1000);
+        }
+        return()=>clearTimeout(timeoutId)
+
+    }, [diContext.mode])
 
     return ( 
         <div 
@@ -16,9 +31,35 @@ const DynamicIsland: React.FC = () => {
             top: diContext.top,
         }}
         >
-            
+            <AnimatePresence 
+            mode={'wait'}
+            initial={false}
+            onExitComplete={()=>null}
+            >
+                { diContext.mode=='FACEID' &&
+                
+                    <AppearAnimation
+                    className="faceIdImgContainer"
+                    >
+                        <img src={faceId}/>
+                    </AppearAnimation>   
+                }
+            </AnimatePresence>
         </div>
      );
 }
  
 export default DynamicIsland;
+
+
+ 
+            // <AnimatePresence mode='wait'>
+            //     <motion.div className='faceIdImgContainer'
+            //     variants={appear}
+            //     initial="hidden"
+            //     animate="visible"
+            //     exit="exit"
+            //     >
+            //         <img src={faceId}/>
+            //     </motion.div>
+            // </AnimatePresence>
