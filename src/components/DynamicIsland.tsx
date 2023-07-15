@@ -3,7 +3,7 @@ import DynamicIslandContext from '../store/DynamicIslandContext';
 import '../style/DynamicIsland.scss'
 import faceId from '../img/icons/faceId.svg'
 import { AnimatePresence, motion } from 'framer-motion';
-import { appear } from '../UI/AnimationVariants';
+import { faceId as faceIdVariant } from '../UI/AnimationVariants';
 import AppearAnimation from '../UI/AppearAnimation';
 
 const DynamicIsland: React.FC = () => {
@@ -40,6 +40,7 @@ const DynamicIsland: React.FC = () => {
                 
                     <AppearAnimation
                     className="faceIdImgContainer"
+                    variants={faceIdVariant}
                     >
                         <img src={faceId}/>
                     </AppearAnimation>   
