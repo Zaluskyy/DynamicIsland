@@ -1,9 +1,13 @@
-import React, { createContext, ReactNode, useContext, useState } from 'react';
+import React, { createContext, ReactNode, useContext, useState, useEffect } from 'react';
 import ApplePay from '../components/Apps/ApplePay';
+import DynamicIslandContext from './DynamicIslandContext';
 
 const AppsContext = createContext<any>({} as any);
 
 export const AppsContextProvider = ({children}: {children: ReactNode}) =>{
+
+    const diContext = useContext(DynamicIslandContext)
+
     interface IApps {
         name: string,
         open: boolean
@@ -32,8 +36,7 @@ export const AppsContextProvider = ({children}: {children: ReactNode}) =>{
 
     const [homeBar, setHomeBar] = useState<boolean>(false)
     const [screenOn, setScreenOn] = useState<boolean>(true)
-    const [locked, setLocked] = useState<boolean>(true)
-
+    const [locked, setLocked] = useState<boolean>(false)
     const handleCloseApp = ()=>{
         setApps(defaultApps)
         setHomeBar(false)
@@ -51,28 +54,17 @@ export const AppsContextProvider = ({children}: {children: ReactNode}) =>{
         setHomeBar(true)
     }
 
-    const handleUnlockScreen = ()=>{
-        setLocked(false)
-        setHomeBar(false)
-        // console.log(apps[0].open)
-        apps.forEach(app => {
-            if(app.open){
-                console.log(app);
-                
-                setHomeBar(true)
-            }
-        });
-    }
 
     return(
         <AppsContext.Provider value={{
             handleOpenApp,
             handleCloseApp,
-            handleUnlockScreen,
+            // handleUnlockScreen,
             apps,
             homeBar, setHomeBar,
             screenOn, setScreenOn,
-            locked, setLocked
+            locked, setLocked,
+            // unlock, setUnlock,
 
         }}>
             {children}

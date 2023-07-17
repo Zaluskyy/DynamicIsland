@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import '../style/OffScreen.scss';
 import AppsContext from '../store/AppsContext';
 import AppearAnimation from '../UI/AppearAnimation';
@@ -6,12 +6,12 @@ import { appear } from '../UI/AnimationVariants';
 
 const OffScreen = () => {
 
-    const appsContext = React.useContext(AppsContext)
+    const context = React.useContext(AppsContext)
 
     return ( 
         <AppearAnimation
         className='OffScreen'
-        onClick={()=>appsContext.setScreenOn(true)}
+        onClick={()=>context.setScreenOn(true)}
         variants={appear}
         >
             

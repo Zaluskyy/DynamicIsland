@@ -44,11 +44,11 @@ export const faceId = {
         opacity: 0,
     },
     visible: {
-        opacity: 1,
-        y: [0, 0, -10, -50, -10, 0]
+        opacity: [0, 0, 1],
+        y: 0
     },
     exit: {
         opacity: 0,
-        y: [-20, -50, -5, -100],
+        y: '-30%'
     }
   }

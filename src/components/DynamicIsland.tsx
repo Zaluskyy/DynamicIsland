@@ -51,16 +51,3 @@ const DynamicIsland: React.FC = () => {
 }
  
 export default DynamicIsland;
-
-
- 
-            // <AnimatePresence mode='wait'>
-            //     <motion.div className='faceIdImgContainer'
-            //     variants={appear}
-            //     initial="hidden"
-            //     animate="visible"
-            //     exit="exit"
-            //     >
-            //         <img src={faceId}/>
-            //     </motion.div>
-            // </AnimatePresence>

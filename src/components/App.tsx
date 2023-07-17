@@ -8,15 +8,42 @@ const App: React.FC = () => {
 
   const appsContext = useContext(AppsContext)
 
-  const handlePowerDoubleClick = ()=>{
-    // appsContext.handleOpenApp('APPLEPAY')
-  }
+  // const handlePowerDoubleClick = ()=>{
+  //   appsContext.handleOpenApp('APPLEPAY')
+  // }
 
-  const handlePowerClick = ()=>{
-    appsContext.setScreenOn(!Boolean(appsContext.screenOn))
-    appsContext.setLocked(true)
+  // const handlePowerClick = ()=>{
+  //   appsContext.setScreenOn(!Boolean(appsContext.screenOn))
+  //   appsContext.setLocked(true)
     
-  }
+  // }
+
+
+
+  let timeoutId: NodeJS.Timeout | null = null;
+
+  const handlePowerDoubleClick = () => {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+      timeoutId = null;
+    }
+    appsContext.handleOpenApp('APPLEPAY');
+  };
+  
+  const handlePowerClick = () => {
+
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+
+    timeoutId = setTimeout(() => {
+      appsContext.setScreenOn(!Boolean(appsContext.screenOn));
+      appsContext.setLocked(true);
+      timeoutId = null;
+    }, 300);
+  };
+
+
 
   return (
     <div className="App">

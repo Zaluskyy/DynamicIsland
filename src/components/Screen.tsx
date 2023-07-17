@@ -38,12 +38,14 @@ const Screen: React.FC = () => {
             <AnimatePresence mode={'wait'}>
                 {appsContext.apps[0].open && <Spotify/>}
             </AnimatePresence>
-            <AnimatePresence mode={'wait'}>
-                {appsContext.apps[1].open && <ApplePay/>}
-            </AnimatePresence>
+            
 
             <AnimatePresence mode={'wait'}>
                 {appsContext.locked && <LockedScreen/>}
+            </AnimatePresence>
+
+            <AnimatePresence mode={'wait'}>
+                {appsContext.apps[1].open && <ApplePay/>}
             </AnimatePresence>
 
             <TopBar/>
