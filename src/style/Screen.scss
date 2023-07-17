@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 .Screen{
     width: 270px;
     height: 590px;
@@ -9,9 +11,24 @@
     flex-direction: column;
     align-items: center;
     
+
+   
+
+
     div{
         z-index: 1;
     }
+
+    .appsSpace{
+        width: 100%;
+        height: calc(100% - calc(calc($diTop*2) + $diHeight));
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
     .wallpaper{
         position: absolute;
         left: 0;

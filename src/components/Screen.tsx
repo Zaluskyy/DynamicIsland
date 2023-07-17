@@ -12,7 +12,8 @@ import Spotify from './Apps/Spotify';
 import HomeBar from './HomeBar';
 import ApplePay from './Apps/ApplePay';
 import AppsContext from '../store/AppsContext';
-import OffScreen from './Apps/OffScreen';
+import OffScreen from './OffScreen';
+import LockedScreen from './LockedScreen';
 
 const Screen: React.FC = () => {
 
@@ -27,18 +28,25 @@ const Screen: React.FC = () => {
             <div className='wallpaper'>
                 <img src={wallpaper}/>
             </div>
-            <TopBar/>
-            <IconsPlace/>
-            <BottomBar/>
-
-            <AnimatePresence mode={'wait'}>
-                {appsContext.apps.spotify && <Spotify/>}
-            </AnimatePresence>
-            <AnimatePresence mode={'wait'}>
-                {appsContext.apps.applePay && <ApplePay/>}
-            </AnimatePresence>
-
             
+            <div className='appsSpace'>
+
+                <IconsPlace/>
+                <BottomBar/>
+            </div>
+
+            <AnimatePresence mode={'wait'}>
+                {appsContext.apps[0].open && <Spotify/>}
+            </AnimatePresence>
+            <AnimatePresence mode={'wait'}>
+                {appsContext.apps[1].open && <ApplePay/>}
+            </AnimatePresence>
+
+            <AnimatePresence mode={'wait'}>
+                {appsContext.locked && <LockedScreen/>}
+            </AnimatePresence>
+
+            <TopBar/>
 
             <AnimatePresence mode='wait'>
                 {appsContext.homeBar && <HomeBar handleHomeBar={handleHomeBar}/>}
@@ -47,7 +55,6 @@ const Screen: React.FC = () => {
             <AnimatePresence mode='wait'>
                 {!appsContext.screenOn && <OffScreen/>}
             </AnimatePresence>
-
             <DynamicIsland/>
         </div>
      );

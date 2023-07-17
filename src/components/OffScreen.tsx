@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import '../../style/Apps/OffScreen.scss';
-import AppsContext from '../../store/AppsContext';
-import AppearAnimation from '../../UI/AppearAnimation';
-import { appear } from '../../UI/AnimationVariants';
+import '../style/OffScreen.scss';
+import AppsContext from '../store/AppsContext';
+import AppearAnimation from '../UI/AppearAnimation';
+import { appear } from '../UI/AnimationVariants';
 
 const OffScreen = () => {
 

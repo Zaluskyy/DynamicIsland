@@ -9,11 +9,13 @@ const App: React.FC = () => {
   const appsContext = useContext(AppsContext)
 
   const handlePowerDoubleClick = ()=>{
-    appsContext.handleOpenApp('APPLEPAY')
+    // appsContext.handleOpenApp('APPLEPAY')
   }
 
   const handlePowerClick = ()=>{
     appsContext.setScreenOn(!Boolean(appsContext.screenOn))
+    appsContext.setLocked(true)
+    
   }
 
   return (
