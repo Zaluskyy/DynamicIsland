@@ -24,15 +24,15 @@ const TopBar: React.FC = () => {
     return ( 
         <div className='TopBar'>
             <motion.span className='left'
-        variants={variant}
-        initial="normal"
-        animate={diContext.mode==('NORMAL')?'normal': 'extended'}>
+            variants={variant}
+            initial="normal"
+            animate={diContext.mode==('NORMAL')?'normal': 'extended'}>
                 21:37
             </motion.span>
             <motion.span className='right' 
-        variants={variant}
-        initial="normal"
-        animate={diContext.mode==('NORMAL')?'normal': 'extended'}>
+            variants={variant}
+            initial="normal"
+            animate={diContext.mode==('NORMAL')?'normal': 'extended'}>
                 <img src={range}/>
                 <img src={wifi}/>
                 <img src={battery}/>

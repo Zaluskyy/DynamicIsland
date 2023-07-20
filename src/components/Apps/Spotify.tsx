@@ -8,6 +8,7 @@ import previous from '../../img/icons/spotify/previous.svg'
 import next from '../../img/icons/spotify/next.svg'
 import play from '../../img/icons/spotify/play.svg'
 import pause from '../../img/icons/spotify/pause.svg'
+import DynamicIslandContext from '../../store/DynamicIslandContext';
 
 export interface SpotifyProps{
 }
@@ -15,6 +16,11 @@ export interface SpotifyProps{
 const Spotify: React.FC<SpotifyProps> = () => {
 
     const sContext = useContext(SpotifyContext)
+    const diContext = useContext(DynamicIslandContext)
+
+    useEffect(()=>{
+        diContext.setMode('NORMAL')
+    }, [])
 
     return ( 
         <ApplicationAnimation className="Spotify" tabIndex={2}>

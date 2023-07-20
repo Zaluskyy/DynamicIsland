@@ -59,13 +59,10 @@ export const AppsContextProvider = ({children}: {children: ReactNode}) =>{
         <AppsContext.Provider value={{
             handleOpenApp,
             handleCloseApp,
-            // handleUnlockScreen,
             apps,
             homeBar, setHomeBar,
             screenOn, setScreenOn,
             locked, setLocked,
-            // unlock, setUnlock,
-
         }}>
             {children}
         </AppsContext.Provider>

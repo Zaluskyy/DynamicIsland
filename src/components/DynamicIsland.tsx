@@ -5,10 +5,14 @@ import faceId from '../img/icons/faceId.svg'
 import { AnimatePresence, motion } from 'framer-motion';
 import { faceId as faceIdVariant } from '../UI/AnimationVariants';
 import AppearAnimation from '../UI/AppearAnimation';
+import SpotifyContext from '../store/SpotifyContext';
+
+import musicLineImg from '../img/dynamicIsland/music.png'
 
 const DynamicIsland: React.FC = () => {
 
     const diContext = useContext(DynamicIslandContext)
+    const spotifyContext = useContext(SpotifyContext)
 
     useEffect(()=>{
         let timeoutId: ReturnType<typeof setTimeout>;
@@ -19,21 +23,10 @@ const DynamicIsland: React.FC = () => {
         }
         return()=>clearTimeout(timeoutId)
 
-    }, [diContext.mode])
-
-    //just for test
-    const [test, setTest] = useState<number>(0)
-    useEffect(()=>{
-        if(test){
-            if(diContext.mode=='NORMAL') diContext.setMode('EXTENDED')
-            else if(diContext.mode=='EXTENDED') diContext.setMode('NORMAL')
-        }
-    }, [test])
-    //
+    }, [diContext.mode])    
 
     return ( 
-        <div 
-        onClick={()=>setTest(prev=>prev+1)}
+        <div
         className='DynamicIsland'
         style={{
             width: diContext.width,
@@ -56,6 +49,19 @@ const DynamicIsland: React.FC = () => {
                         <img src={faceId}/>
                     </AppearAnimation>   
                 }
+
+                {
+                    diContext.mode=='EXTENDED' &&
+                    <div className='extendedContainer'>
+                        <div className='left'>
+                            <img src={spotifyContext.music[spotifyContext.currentMusic].cover}/>
+                        </div>
+                        <div className='right'>
+                            <img src={musicLineImg}/>
+                        </div>
+                    </div>
+                }
+
             </AnimatePresence>
         </div>
      );

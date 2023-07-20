@@ -4,6 +4,9 @@ import DynamicIsland from './DynamicIsland';
 
 import { AnimatePresence } from 'framer-motion';
 
+import AppsContext from '../store/AppsContext';
+import DynamicIslandContext from '../store/DynamicIslandContext';
+
 import wallpaper from '../img/walpaperr.png';
 import TopBar from './TopBar';
 import BottomBar from './BottomBar';
@@ -11,16 +14,21 @@ import IconsPlace from './IconsPlace';
 import Spotify from './Apps/Spotify';
 import HomeBar from './HomeBar';
 import ApplePay from './Apps/ApplePay';
-import AppsContext from '../store/AppsContext';
 import OffScreen from './OffScreen';
 import LockedScreen from './LockedScreen';
+import SpotifyContext from '../store/SpotifyContext';
 
 const Screen: React.FC = () => {
 
     const appsContext = useContext(AppsContext)
+    const diContext = useContext(DynamicIslandContext)
+    const spotifyContext = useContext(SpotifyContext)
     
     const handleHomeBar = ()=>{
         appsContext.handleCloseApp()
+
+        if(spotifyContext.play) diContext.setMode('EXTENDED')
+        else diContext.setMode('EXTENDED')
     }
     
     return ( 
