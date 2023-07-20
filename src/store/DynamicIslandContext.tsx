@@ -8,23 +8,27 @@ export const DynamicIslandContextProvider = ({children}: {children: ReactNode}) 
     const [radius, setRadius] = useState<number>(13)
     const [top, setTop] = useState<number>(8)
 
+    const noramlWidth = 87
+    const extendedWidth = 139
+    const normalheight = 26
+
     type Mode = 'NORMAL' | 'EXTENDED' | 'FACEID' | 'BIG'
     const [mode, setMode] = useState<Mode>('NORMAL')
 
     useEffect(()=>{
         if(mode=='NORMAL'){
             setHeight(26)
-            setWidth(87)
+            setWidth(noramlWidth)
             setRadius(13)
             setTop(8)
         }else if(mode=='FACEID'){
-            setHeight(87)
-            setWidth(87)
+            setHeight(noramlWidth)
+            setWidth(noramlWidth)
             setRadius(28)
             setTop(5)
         }else if(mode=='EXTENDED'){
             setHeight(26)
-            setWidth(168)
+            setWidth(extendedWidth)
             setRadius(13)
             setTop(8)
         }else if(mode=='BIG'){
@@ -42,6 +46,7 @@ export const DynamicIslandContextProvider = ({children}: {children: ReactNode}) 
             radius, setRadius,
             top, setTop,
             mode, setMode,
+            noramlWidth, extendedWidth, normalheight
         }}>
             {children}
         </DynamicIslandContext.Provider>

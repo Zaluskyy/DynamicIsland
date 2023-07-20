@@ -12,6 +12,8 @@ export const SpotifyContextProvider = ({children}: {children: ReactNode}) =>{
     const [play, setPlay] = useState<boolean>(false)
     const [playedTime, setPlayedTime] = useState<number>(0)
 
+    const [isOnIsland, setIsOnIsland] = useState<boolean>(true)
+
 
     useEffect(()=>{
         let intervalId: ReturnType<typeof setInterval>

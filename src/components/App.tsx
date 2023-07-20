@@ -3,23 +3,10 @@ import logo from '../logo.svg';
 import AppsContext from '../store/AppsContext';
 import '../style/App.scss';
 import Screen from './Screen';
-import Timer from './Test';
 
 const App: React.FC = () => {
 
   const appsContext = useContext(AppsContext)
-
-  // const handlePowerDoubleClick = ()=>{
-  //   appsContext.handleOpenApp('APPLEPAY')
-  // }
-
-  // const handlePowerClick = ()=>{
-  //   appsContext.setScreenOn(!Boolean(appsContext.screenOn))
-  //   appsContext.setLocked(true)
-    
-  // }
-
-
 
   let timeoutId: NodeJS.Timeout | null = null;
 
@@ -57,7 +44,6 @@ const App: React.FC = () => {
           onClick={handlePowerClick}
           ></div>
           <Screen/>
-          {/* <Timer/> */}
       </div>
     </div>
   );

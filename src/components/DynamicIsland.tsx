@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import DynamicIslandContext from '../store/DynamicIslandContext';
 import '../style/DynamicIsland.scss'
 import faceId from '../img/icons/faceId.svg'
@@ -21,8 +21,19 @@ const DynamicIsland: React.FC = () => {
 
     }, [diContext.mode])
 
+    //just for test
+    const [test, setTest] = useState<number>(0)
+    useEffect(()=>{
+        if(test){
+            if(diContext.mode=='NORMAL') diContext.setMode('EXTENDED')
+            else if(diContext.mode=='EXTENDED') diContext.setMode('NORMAL')
+        }
+    }, [test])
+    //
+
     return ( 
         <div 
+        onClick={()=>setTest(prev=>prev+1)}
         className='DynamicIsland'
         style={{
             width: diContext.width,
