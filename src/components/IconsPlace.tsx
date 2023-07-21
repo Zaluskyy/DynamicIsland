@@ -3,7 +3,6 @@ import '../style/IconsPlace.scss';
 import Application from './Application';
 
 import safari from '../img/icons/safari.jpg'
-import wallpaper from '../img/walpaperr.png'
 import spotify from '../img/icons/spotify.png'
 import photos from '../img/icons/photos.png'
 import mail from '../img/icons/mail.png'
@@ -13,6 +12,7 @@ import appStore from '../img/icons/appStore.png'
 import youtube from '../img/icons/youtube.png'
 import maps from '../img/icons/maps.png'
 import AppsContext from '../store/AppsContext';
+import DynamicIslandContext from '../store/DynamicIslandContext';
 
 interface IApplications {
     name: string,
@@ -26,6 +26,7 @@ export interface IconsPlaceProps{
 const IconsPlace: React.FC<IconsPlaceProps> = () => {
 
     const appsContext = useContext(AppsContext)
+    const diContext = useContext(DynamicIslandContext)
 
     const handleOpenApp = (name: string)=>{
         if(name!==''){
@@ -56,7 +57,7 @@ const IconsPlace: React.FC<IconsPlaceProps> = () => {
     })
 
     return ( 
-        <div className='IconsPlace'>
+        <div className='IconsPlace' onClick={diContext.hanldeCloseBigIsland}>
             {app}
         </div>
      );

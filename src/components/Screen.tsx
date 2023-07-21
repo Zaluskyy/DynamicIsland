@@ -4,7 +4,7 @@ import DynamicIsland from './DynamicIsland';
 
 import { AnimatePresence } from 'framer-motion';
 
-import AppsContext, {IApps} from '../store/AppsContext';
+import AppsContext from '../store/AppsContext';
 import DynamicIslandContext from '../store/DynamicIslandContext';
 
 import wallpaper from '../img/walpaperr.png';
@@ -62,10 +62,11 @@ const Screen: React.FC = () => {
                 {appsContext.homeBar && <HomeBar handleHomeBar={handleHomeBar}/>}
             </AnimatePresence>
 
+            <DynamicIsland/>
+        
             <AnimatePresence mode='wait'>
                 {!appsContext.screenOn && <OffScreen/>}
             </AnimatePresence>
-            <DynamicIsland/>
         </div>
      );
 }
