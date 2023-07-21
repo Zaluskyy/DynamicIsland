@@ -19,7 +19,8 @@ const Spotify: React.FC<SpotifyProps> = () => {
     const diContext = useContext(DynamicIslandContext)
 
     useEffect(()=>{
-        diContext.setMode('NORMAL')
+        // diContext.setMode('NORMAL')
+        diContext.setCurrentDiApp('')
     }, [])
 
     return ( 

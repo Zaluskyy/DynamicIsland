@@ -7,6 +7,7 @@ export const DynamicIslandContextProvider = ({children}: {children: ReactNode}) 
     const [height, setHeight] = useState<number>(26)
     const [radius, setRadius] = useState<number>(13)
     const [top, setTop] = useState<number>(8)
+    const [currentDiApp, setCurrentDiApp] = useState<string>('')
 
     const noramlWidth = 87
     const extendedWidth = 139
@@ -39,6 +40,11 @@ export const DynamicIslandContextProvider = ({children}: {children: ReactNode}) 
         }
     }, [mode])
     
+    useEffect(()=>{
+        if(currentDiApp!=='') setMode('EXTENDED')
+        else setMode('NORMAL')
+    }, [currentDiApp])
+
     return(
         <DynamicIslandContext.Provider value={{
             width, setWidth,
@@ -46,6 +52,7 @@ export const DynamicIslandContextProvider = ({children}: {children: ReactNode}) 
             radius, setRadius,
             top, setTop,
             mode, setMode,
+            currentDiApp, setCurrentDiApp,
             noramlWidth, extendedWidth, normalheight
         }}>
             {children}

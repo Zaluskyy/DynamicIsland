@@ -4,14 +4,14 @@ import DynamicIslandContext from './DynamicIslandContext';
 
 const AppsContext = createContext<any>({} as any);
 
+export interface IApps {
+    name: string,
+    open: boolean
+}
+
 export const AppsContextProvider = ({children}: {children: ReactNode}) =>{
 
     const diContext = useContext(DynamicIslandContext)
-
-    interface IApps {
-        name: string,
-        open: boolean
-    }
 
     const [apps, setApps] = useState<IApps[]>([
         {
@@ -59,7 +59,7 @@ export const AppsContextProvider = ({children}: {children: ReactNode}) =>{
         <AppsContext.Provider value={{
             handleOpenApp,
             handleCloseApp,
-            apps,
+            apps, setApps,
             homeBar, setHomeBar,
             screenOn, setScreenOn,
             locked, setLocked,

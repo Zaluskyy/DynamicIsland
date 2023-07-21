@@ -4,7 +4,7 @@ import DynamicIsland from './DynamicIsland';
 
 import { AnimatePresence } from 'framer-motion';
 
-import AppsContext from '../store/AppsContext';
+import AppsContext, {IApps} from '../store/AppsContext';
 import DynamicIslandContext from '../store/DynamicIslandContext';
 
 import wallpaper from '../img/walpaperr.png';
@@ -27,8 +27,8 @@ const Screen: React.FC = () => {
     const handleHomeBar = ()=>{
         appsContext.handleCloseApp()
 
-        if(spotifyContext.play) diContext.setMode('EXTENDED')
-        else diContext.setMode('EXTENDED')
+        if(spotifyContext.play) diContext.setCurrentDiApp('SPOTIFY')
+        else diContext.setCurrentDiApp('')
     }
     
     return ( 
