@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    opacity: .6;
 
     .imageContainer{
         width: 42px;
@@ -25,4 +26,9 @@
         margin: 0;
         font-weight: bold;
     }
+}
+
+.Application:nth-child(1){
+    opacity: 1;
+    cursor: pointer;
 }
